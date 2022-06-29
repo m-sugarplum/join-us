@@ -20,13 +20,13 @@ app.get('/', function (req, res) {
 
     connection.query(users_count, function (error, results, fields) {
         if (error) throw error;
-        const total = results[0].total;
-        console.log(total);
-        res.send(`Number of users: ${total}`);
+        const count = results[0].total;
+        res.render('home', { count });
     });
+
 });
 
 
-app.listen(3000, function () {
-    console.log("App listening on port 3000 :)".bold.magenta);
+app.listen(8080, function () {
+    console.log("App listening on port 8080 :)".bold.magenta);
 });
