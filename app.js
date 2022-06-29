@@ -12,6 +12,8 @@ const connection = mysql.createConnection({
 
 const app = express();
 
+app.set('view engine', 'ejs');
+
 
 app.get('/', function (req, res) {
     const users_count = "SELECT COUNT(*) AS total FROM users";
