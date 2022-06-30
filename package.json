@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/m-sugarplum/join-us#readme",
   "dependencies": {
+    "body-parser": "^1.20.0",
     "colors": "^1.4.0",
     "ejs": "^3.1.8",
     "express": "^4.18.1",

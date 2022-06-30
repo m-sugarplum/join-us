@@ -1,7 +1,8 @@
-const colors = require('colors');
 const mysql = require('mysql');
 const express = require('express');
+const bodyParser = require('body-parser');
 const password = require('./db_settings');
+const colors = require('colors');
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -13,6 +14,7 @@ const connection = mysql.createConnection({
 const app = express();
 
 app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.get('/', function (req, res) {
@@ -24,6 +26,18 @@ app.get('/', function (req, res) {
         res.render('home', { count });
     });
 
+});
+
+
+app.post("/register", function (req, res) {
+    // console.log("Email from /register: " + req.body.email);
+    const person = {
+        email: req.body.email
+    };
+    connection.query('INSERT INTO users SET ?', person, function (err, result) {
+        if (err) throw err;
+        res.redirect("/");
+    });
 });
 
 
