@@ -1,10 +1,17 @@
-<h1>JOIN US</h1>
+<link rel="stylesheet" href="/app.css">
+<link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+<div class="flex-container">
+    <div class="container">
+        <h1>JOIN US</h1>
+        <p class="lead">Enter your email to join <strong>
+                <%= count %>
+            </strong> others on our wait-list. We are 100% not a cult. </p>
 
-<p class="lead">Enter your email to join <strong>
-        <%= count %>
-    </strong> others on our waitlist. We are 100% not a cult. </p>
-
-<form method="POST" action='/register'>
-    <input type="text" class="form" name="email" placeholder="Enter Your Email">
-    <button>Join Now</button>
-</form>
+        <form method="POST" action='/register'>
+            <input type="text" name="email" placeholder="Enter Your Email">
+            <button>Join Now</button>
+        </form>
+    </div>
+</div>
